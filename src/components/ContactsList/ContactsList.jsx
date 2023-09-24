@@ -1,19 +1,21 @@
 import React from 'react'
+import { RiDeleteBin6Line } from 'react-icons/ri';
+import { ContactsListButton, ContactsListContainer, ContactsListName } from './ContactsListStyle';
 
 export const ContactsList = ({ handleDelete, renderFilter }) => {
 
 
 	return (
-		<div>
+		<ContactsListContainer>
 			{renderFilter.map(({ name, number, id }) => {
 				return (
-					<div key={id}>
-						<span>{name}: {number}</span>
-						<button onClick={() => handleDelete(name)}>Delete </button>
-					</div>
+					<ContactsListName key={id}>
+						<p>{name}: {number}</p>
+						<ContactsListButton onClick={() => handleDelete(name)}><RiDeleteBin6Line /> </ContactsListButton>
+					</ContactsListName>
 				);
 			})
 			}
-		</div>
+		</ContactsListContainer>
 	);
 };
